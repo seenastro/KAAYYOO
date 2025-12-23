@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Business Card Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top, #000035, #1cb5e0);    
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+    padding: 20px;
+    align-items: center;
+}
+.container {
+    width: 50%;
+    margin: auto;
+    background: linear-gradient(to bottom, #6a5acd, #87ceeb);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    border: 3px solid dimgray;
+        display: none;
+}
+h1 {
+    font-size: 30px;
+    font-family: cursive;
+    font-weight: bolder;
+    text-shadow: 3px 3px 3px black
+}
+.form-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #444;
+    border-radius: 10px 20px 0px 10px;
+    box-shadow: 5px 5px 5px black;
+    border-width: 2px 2px 2px 15px;
+    border-color: black black black red;
+    text-shadow: 1px 1px 1px black;
+}
+button {
+    width: 40%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #007BFF;
+    color: white;
+    border: solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 20px 20px 20px 20px;
+  text-shadow: 3px 3px 3px black;
+    
+}
+button:hover {
+    background: #0056b3;
+}
+#card-container {
+    margin-top: 20px;
+}
+#business-card {
+    background: #00aaff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0,1);
+    text-align: center;
+    color: white;
+    position: relative;
+    font-weight: bold;
+    
+    text-align: center;
+}
+.hexagon {
+    width: 100px;
+    height: 100px;
+    background: white;
+    margin: auto;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.logo {
+    color: black;
+    font-size: 5px;
+    font-weight: bold;
+    padding-top: 30px;
+}
+.co-founder {
+    font-size: 0px;
+    color: #00aaff;
+    margin-top: -5px;
+    font-family: serif;
+}
+#business-card h2 {
+    margin: 10px 0;
+    font-size: 18px;
+    font-family: serif;
+}
+#business-card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+.info p {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+}
+.info span {
+    margin-right: 10px;
+    text-align: left;
+}
+.template-selector {
+    margin-bottom: 1px;
+    align-items: center;
+}
+.template-button {
+    padding: 15px 15px;
+    margin: 3px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #bdb76b;
+    color: black;
+    border-width: 2px 7px 2px 7px;
+    box-shadow: 7px 7px 7px 	Gray;
+    border-color: black brown black brown;
+    width: 100%;
+}
+.template-button:hover {
+    background-color: #ddd;
+}
+pr{
+    font-size: 30px;
+    font-family: serif;
+    text-align: center;
+}
+  table{
+    border:outset grey;
+    background-color: lightgrey;
+    color: black;
+    width: 100%;
+    align-items: left;
+    text-align: left;
+  }
+th,td{
+    border: outset; 
+    background-color:#96d4d4; 
+    font-family: cursive;
+    text: bold;
+  }
+td{
+    border: outset;
+    background-color: lightgrey;
+    color: black;
+    font-family: Courier;
+    text: bold;
+  }
+    .intro{
+        font-size :40px;
+        max-width: 100%;
+    margin: auto;
+    background: linear-gradient(to bottom, #6a5acd, #87ceeb);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    border: 3px solid dimgray;
+        font-family: Palatino;
+    }
+    li{
+        text-align: left;
+        
+    }
+    h3{
+      color: 	#fff;
+        font-family: Palatino;
+    }
+    </style>
+</head>
+<body>
+    <div class="intro" id="intro">
+        <h3>Virtual Business Card Generator</h3>
+        <hr>
+        <h4><pre>Well-Come!!!</pre></h4>
+        <p>This is virtual business card generator!</p>
+        <p style="text-align: left">Dear User:</p>
+            <p>You can download your business card into your file by entering the necessary information in a given place.</p>
+        <p>To use this website you need to follow the following steps.</p>
+        <ol>
+            <li>Click button say "continue".</li>
+            <li>Fill an information in correct place.</li>
+            <li>Choose The Templete if you want.</li>
+            <li>Click the button say "Generate Card"; to generate the card.</li>
+            <li>Click the button named say "Download Card"; to download the card in image into your file.</li>
+        </ol>
+        <button type="button" onclick="show()">Continue</button>
+          <button type="button" onclick='here()'>🙋 OUR GROUP MEMBERS ARE HERE👇</button>
+    </div>
+    <div class="container" id="container">
+        <h1>Virtual Business Card Generator</h1>
+        <hr>
+        <div class="template-selector">
+            <pr>Choose a Form</pr><br>
+            <hr>
+            <hr>
+            <table style="border: none;background-color: silver;">
+                <tr>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template1')">Template 1</button></td>
+                    <td style="border: none;background-color: silver"><button class="template-button" onclick="selectTemplate('template2')">Template 2</button></td>
+                    <td style="border: none;background-color: silver"><button class="template-button" onclick="selectTemplate('template3')">Template 3</button></td>
+                </tr>
+                <tr>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template4')">Template 4</button></td>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template5')">Template 5</button></td>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template6')">Template 6</button></td>
+                </tr>
+                <tr>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template7')">Template 7</button></td>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template8')">Template 8</button></td>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template9')">Template 9</button></td>
+                </tr>
+                <tr>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template10')">Template 10</button></td>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template11')">Template 11</button></td>
+                    <td style="border: none;background-color: silver;"><button class="template-button" onclick="selectTemplate('template12')">Template 12</button></td>
+                </tr>
+            </table>
+            <hr>
+        </div>
+        <div class="form-container">
+            <input type="text" id="name" placeholder="Enter Your Full Name">
+            <input type="text" id="title" placeholder="Job Title">
+            <input type="text" id="company" placeholder="Company Name">
+            <input type="tel" id="phone" placeholder="Phone Number">
+            <input type="email" id="email" placeholder="Email">
+            <input type="URL" id="website" placeholder="URL :Company's Website">
+            <input type="text" id="address" placeholder="Address : Region, Country">
+            <button style="width:100%" onclick="generateCard()">Generate Card</button>
+        </div>
+        <div id="card-container">
+            <div id="business-card">
+                <div id="logo"class="hexagon">
+                    <div class="logo">COMPANY</div>
+                    <p id="co-founder"class="co-founder" style="font-size: 18px">company</p>
+                </div>
+                <h2 id="card-name">Your Name</h2>
+                <p id="card-title">Job Title</p>
+                <div class="info">
+                    <p><span>📞</span> <span id="card-phone">+123 456 7890</span></p>
+                    <p><span>🌍</span> <span id="card-website">www.example.com</span></p>
+                    <p><span>🏠</span> <span id="card-address">Address</span></p>
+                </div>
+            </div>
+        </div>
+        <button onclick="downloadCard()">Download Card</button>
+        <button type="button" onclick='cancel2()'>EXIT</button>
+    </div>
+  <div class="container" id="con">
+     <div id="here">
+    <h1>GROUP 2 NAME AND NUMBER</h1>
+  <table>
+    <tr>
+    <th>GROUP NAME</th>
+      <th>NUMBER</th>
+    </tr>
+    <b>
+    <tr">
+      <td>DEMITU ABDETA</td>
+      <td style="text-align: center">6</td>
+        
+    </tr>
+    <tr>
+      <td>FIRAOL DEGU</td>
+      <td style="text-align: center">15</td>
+    </tr>
+    <tr>
+      <td>KENA DABA     </td>
+      <td style="text-align: center">20</td>
+    </tr>
+    <tr>
+      <td>LAMMI MELAKU</td>
+      <td style="text-align: center">24</td>
+    </tr>
+    <tr>
+      <td>MERSIBIT GIZEW</td>
+      <td style="text-align: center">26</td>
+    </tr>
+    <tr>
+      <td>SISAY DIRIBA</td>
+      <td style="text-align: center">32</td>
+    </tr>
+    </b>
+  </table>
+    </div>
+  <button type="button" onclick='cancel()'>THANK YOU</button>
+   </div>
+
+    <script>
+    function show(){
+        document.getElementById('intro').style.display='none';
+        document.getElementById('container').style.display='block';
+        
+    }
+    function here(){
+        document.getElementById('intro').style.display='none';
+        document.getElementById('con').style.display='block';
+    }
+    function cancel(){
+        document.getElementById('con').style.display='none';
+        document.getElementById('intro').style.display='block';
+    }
+    function cancel2(){
+        document.getElementById('container').style.display='none';
+        document.getElementById('intro').style.display='block';
+    }
+    let currentTemplate = 'template1';
+    function selectTemplate(templateName) {
+        currentTemplate = templateName;
+        applyTemplate(templateName);
+    }
+     function applyTemplate(template) {
+        const businessCard = document.getElementById("business-card");
+        const logo = document.getElementById("logo");
+        businessCard.style.background = "";
+        businessCard.style.color = "";
+        businessCard.style.fontFamily = "";
+        businessCard.className = "";
+        logo.style.background = "";
+        if (template === 'template1') {
+            businessCard.style.background = '#00aaff';
+            businessCard.style.color= 'white';
+        } else if (template === 'template2') {
+            businessCard.style.background = '#333';
+            businessCard.style.color = 'white';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Georgia, serif';
+        } else if (template === 'template3') {
+            businessCard.style.background = 'olive';
+            businessCard.style.color = '#000000';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Palatino';
+        }else if (template === 'template4') {
+            businessCard.style.background = '#588c75';
+            businessCard.style.color = '#000000';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'monospace';
+        }else if (template === 'template5') {
+            businessCard.style.background = '#da645a';
+            businessCard.style.color = '#000000';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Courier';
+        }else if (template === 'template6') {
+            businessCard.style.background = 'teal';
+            businessCard.style.color = '#000000';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Monaco';
+        }else if (template === 'template7') {
+            businessCard.style.background = 'DarkSlateBlue';
+            businessCard.style.color = '#000000';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Monaco';
+        }else if (template === 'template8') {
+            businessCard.style.background = '#000080';
+            businessCard.style.color = '#fff';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Monaco';
+        }else if (template === 'template9') {
+            businessCard.style.background = 'Navy';
+            businessCard.style.color = 'white';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Courier';
+        }else if (template === 'template10') {
+            businessCard.style.background = 'black';
+            businessCard.style.color = 'white';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Monaco';
+        }   else if (template === 'template11') {
+            businessCard.style.background = 'DarkBlue';
+            businessCard.style.color = 'white';
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Monaco';
+        }   else if (template === 'template12') {
+            businessCard.style.background = '#008b8b';
+            businessCard.style.color = 'white';DarkBlue
+            businessCard.style.border = '1px solid #000';
+            businessCard.style.fontFamily = 'Monaco';
+        }   
+    }
+    function generateCard() {
+        document.getElementById("card-name").innerText = document.getElementById("name").value || "Name........";
+        document.getElementById("co-founder").innerText = document.getElementById("company").value || "Company........";
+        document.getElementById("card-title").innerText = document.getElementById("title").value || "Job........";
+        document.getElementById("card-phone").innerText = document.getElementById("phone").value || "+251-........";
+        document.getElementById("card-website").innerText = document.getElementById("website").value || "www........com";
+        document.getElementById("card-address").innerText = document.getElementById("address").value || "Region, Country";
+        applyTemplate(currentTemplate);
+    }
+    function downloadCard() {
+        html2canvas(document.getElementById("business-card")).then(canvas => {
+            let link = document.createElement("a");
+            link.href = canvas.toDataURL("image/png");
+            link.download = "business_card.png";
+            link.click();
+        });
+    }
+    window.onload = function() {
+        applyTemplate(currentTemplate);
+    };
+    </script>
+</body>
+</html>
